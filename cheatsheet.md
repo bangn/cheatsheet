@@ -46,3 +46,9 @@ and update the password to the google's one
 ```sh
 sudo service exim4 restart
 ```
+
+### Remove message from queue
+
+```sh
+exim -bp | awk '/^ *[0-9]+[mhd]/{print "exim -Mrm " $3}' | bash
+```
